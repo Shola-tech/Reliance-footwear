@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Reliance Footwear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+     header {
+      background: #111;
+      color: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+    .search {
+      display: flex;
+      gap: 8px;
+    }
+    .search input {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    nav.menu {
+      display: flex;
+      gap: 20px;
+      background: #222;
+      padding: 7px 10px;
+    }
+    nav.menu a, nav.menu summary {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .mega {
+      background: #333;
+      padding: 10px;
+    }
+    .mega a {
+      display: block;
+      color: #ddd;
+      margin: 5px 0;
+    }
+
+
+    
+    /* Show nav on desktop */
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+      .menu {
+        display: flex !important;
+        flex-direction: row;
+        gap: 20px;
+        background: #222;
+        padding: 10px 0;
+      }
+    }
+
+    /* About Section */
+    .about {
+      padding: 60px 15px;
+      text-align: center;
+    }
+    .about h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+
+    /* Mission & Vision */
+    .grid {
+      display: grid;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card i {
+      font-size: 2rem;
+      color: #c49a6c; /* leather gold-brown */
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer{padding:36px 0 60px;color:#374151}
+    #fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.5rem}
+    footer h4{margin:.25rem 0 1rem;font-size:1rem;color:#111}
+    footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+    footer li a{color:#4b5563}
+     .team {
+      background: #f5f5f5;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .team h2 {
+      margin-bottom: 20px;
+    }
+    .team-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .team-member {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .team-member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+    footer a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+     <header>
+    <div class="container nav">
+      <a class="brand" href="#">Reliance Footwear</a>
+      <div class="search">
+        <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search" />
+         <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+        <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </div>
+    <div class="container" style="padding-bottom:12px">
+      <nav class="menu" aria-label="primary">
+         <a href="index.html">Home</a>
+        <details>
+          <summary>Men/Guys</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Men's Collection</strong>
+              <a href="men-shoe.html">Shoes/Half Shoes</a>
+              <a href="men-sandal.html">Sandals</a>
+              <a href="men-palm.html">Slides</a>
+              <a href="men-belt.html">Belts</a>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>Women/Ladies</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Women's Collection</strong>
+              <a href="women-shoes.html">Shoes/Heels</a>
+              <a href="women-sandal.html">Sandals</a>
+              <a href="women-slippers">Slippers</a>
+              <a href="women-belt.html">Belts</a>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>Kids</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Kids Collection</strong>
+              <a href="kids-shoes.html">Shoes/Half shoes</a>
+              <a href="kids-sandal.html">Sandals</a>
+             <a href="kids-sandal.html">Slides</a>
+              <a href="kids-belt.html">Belts</a>
+            </div>
+          </div>
+        </details>
+   
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- About Section -->
+  <section class="about">
+    <h1>About Reliance Footwear</h1>
+    <p>
+      At Reliance Footwear, we believe that style, comfort, and durability should go hand in hand.  
+      Since our founding, we’ve been dedicated to crafting premium shoes, sandals, and accessories that reflect elegance and quality.  
+      Our mission is to bring timeless designs to modern customers across the globe.
+    </p>
+  </section>
+
+  <!-- Mission & Vision -->
+   <div class="grid">
+      <div class="card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>To provide premium, stylish, and durable leather footwear and accessories that enhance confidence and comfort.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>To be the leading African brand for leather footwear and accessories, recognized for quality, creativity, and affordability.</p>
+      </div>
+    </div>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/download.jfif" alt="CEO">
+        <h3>Owoetoni Melford</h3>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="images/baking-stock2.webp" alt="Designer">
+        <h3>Mary Olorunmowaju</h3>
+        <p>Lead Designer</p>
+      </div>
+     
+    </div>
+  </section>
+
+  <!-- Footer -->
+   <footer>
+    <div class="container" id="fgrid">
+      <div>
+        <h4>Store Information</h4>
+        <p><span style="color: #021b52; font-weight: 600;">Address:</span> Reliance Footwear, Shop C19, Ige Daramola Street, Iyan-Iyesi, Ota, Ogun-state.</p>
+        <p><span style="color: #021b52; font-weight: 600;">Hotline :</span> +234 806 268 5849</p> 
+        <p><span style="color: #021b52; font-weight: 600;">Email:</span> olorunmowajumarysc@gmail.com</p>
+        <p><span style="color: #021b52; font-weight: 600;">Whatsapp:</span> 09160715211</p>
+      </div>
+      <div>
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+ <script>
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+
+    hamburger.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    });
+  </script>
+</body>
+</html>

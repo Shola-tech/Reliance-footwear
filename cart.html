@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Reliance Footwears</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+ <header>
+    <div class="logo">Reliance</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#">Products ▾</a>
+          <ul>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button onclick="checkoutWhatsApp()">Place Order via WhatsApp</button>
+  </section>
+</div>
+  <footer>
+    <p>© 2025 Reliance Footwears. All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

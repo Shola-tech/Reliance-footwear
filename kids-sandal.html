@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reliance Footwear - Product Listing</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+    }
+
+ header {
+      background: #111;
+      color: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+    .search {
+      display: flex;
+      gap: 8px;
+    }
+    .search input {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    nav.menu {
+      display: flex;
+      gap: 20px;
+      background: #222;
+      padding: 7px 10px;
+    }
+    nav.menu a, nav.menu summary {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .mega {
+      background: #333;
+      padding: 10px;
+    }
+    .mega a {
+      display: block;
+      color: #ddd;
+      margin: 5px 0;
+    }
+
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 15px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      height: fit-content;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .product-info p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 16px;
+      color: #c7a17a;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      margin-top: 10px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #c7a17a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+   <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">Reliance Footwear</a>
+      <div class="search">
+        <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search" />
+        <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+        <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </div>
+    <div class="container" style="padding-bottom:12px">
+      <nav class="menu" aria-label="primary">
+        
+        <a href="index.html" target="_blank">Home</a>
+         <a href="about.html" target="_blank">About</a>
+        <details>
+          <summary>Men/Guys</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Men's Collection</strong>
+              <a href="men-shoe.html" target="_blank">Shoes/Half Shoes</a>
+              <a href="men-sandal.html" target="_blank">Sandals</a>
+              <a href="men-palm.html" target="_blank">Slides</a>
+              <a href="men-belt.html" target="_blank">Belts</a>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>Women/Ladies</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Women's Collection</strong>
+              <a href="women-shoes.html" target="_blank">Shoes/Heels</a>
+              <a href="women-sandal.html" target="_blank">Sandals</a>
+              <a href="women-slippers.html" target="_blank">Slippers</a>
+              <a href="women-belt.html" target="_blank">Belts</a>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>Kids</summary>
+          <div class="mega" role="menu">
+            <div>
+              <strong>Kids Collection</strong>
+              <a href="kids-shoes.html" target="_blank">Shoes/Half shoes</a>
+              <a href="kids-sandal.html" target="_blank">Sandals</a>
+             <a href="kids-palm.html" target="_blank">Slides</a>
+              <a href="kids-belt.html" target="_blank">Belts</a>
+            </div>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Listing -->
+  <div class="container">
+    <h2>Kid's Leather Collection</h2>
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="images/boysan-1.jfif" alt="Men Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Classic Leather</h3>
+          <p>Premium handcrafted leather shoe.</p>
+          <div class="price">$120</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="images/boysan-2.jfif" alt="Women Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Elegant Leather</h3>
+          <p>Stylish and durable leather wear.</p>
+          <div class="price">$95</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="images/boysan-3.jfif" alt="Men Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Formal Leather</h3>
+          <p>Perfect for school and events.</p>
+          <div class="price">$140</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="images/boysan4.jfif" alt="Women Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Classic Leather</h3>
+          <p>Elegant everyday comfort.</p>
+          <div class="price">$110</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+   
+      <div class="product-card">
+        <img src="images/boysan-5.jfif" alt="Men Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Formal Leather</h3>
+          <p>Perfect for school and events.</p>
+          <div class="price">$140</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+    
+      <div class="product-card">
+        <img src="images/kidsan1.jfif" alt="Women Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Classic Leather</h3>
+          <p>Elegant everyday comfort.</p>
+          <div class="price">$110</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+    
+      <div class="product-card">
+        <img src="images/kidsan2.jfif" alt="Men Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Formal Leather</h3>
+          <p>Perfect for school and events.</p>
+          <div class="price">$140</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+    
+      <div class="product-card">
+        <img src="images/kidsan3.jfif" alt="Women Leather Shoe">
+        <div class="product-info">
+          <h3>Kid's Classic Leather</h3>
+          <p>Elegant everyday comfort.</p>
+          <div class="price">$110</div>
+          <a href="product-detail.html" class="btn">View Details</a>
+        </div>
+      </div>
+
+    
+    
+
+    
+    </div>
+  
+ </div>
+</body>
+</html>

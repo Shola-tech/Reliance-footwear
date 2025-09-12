@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reliance Footwear — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#0e0e10;
+      --text:#0b0b0c;
+      --muted:#6b7280;
+      --brand:#111827;
+      --accent:#111;
+      --white:#fff;
+      --off:#f8fafc;
+      --card:#ffffff;
+      --ring: rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--off)}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+    .topbar{background:var(--bg);color:var(--white);font-size:.9rem}
+    .topbar .container{display:flex;align-items:center;justify-content:space-between;height:44px}
+    .topbar a{color:var(--white);opacity:.9}
+    .topbar a:hover{opacity:1}
+
+    /* Header */
+    header {background:#fff;color:#000;}
+    .nav {display:flex;justify-content:space-between;align-items:center;padding:12px 0;}
+    .brand {font-size:1.5rem;font-weight:bold;color:#000;text-decoration:none;}
+    .search {display:flex;gap:8px;align-items:center;}
+    .search input {padding:6px 10px;border-radius:4px;border:1px solid #ccc;}
+    .icon-btn {background:none;border:none;font-size:1.2rem;cursor:pointer;color:#000;}
+
+    /* Nav menu */
+    nav.menu {display:flex;gap:20px;background:#222;padding:7px 10px;border-radius:6px;}
+    nav.menu a, nav.menu summary {color:#fff;text-decoration:none;cursor:pointer;display:flex;align-items:center;gap:6px;}
+    nav.menu details summary::-webkit-details-marker {display:none;} /* remove default arrow */
+    .mega {background:#333;padding:10px;border-radius:6px;margin-top:5px;}
+    .mega a {display:block;color:#ddd;margin:6px 0;padding-left:6px;}
+
+    /* Hamburger */
+    .hamburger {
+      width:28px;
+      height:20px;
+      position:relative;
+      display:none;
+      cursor:pointer;
+    }
+    .hamburger span {
+      position:absolute;
+      height:3px;
+      width:100%;
+      background:#000;
+      left:0;
+      transition:0.3s ease;
+    }
+    .hamburger span:nth-child(1){top:0;}
+    .hamburger span:nth-child(2){top:8px;}
+    .hamburger span:nth-child(3){top:16px;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg);top:8px;}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg);top:8px;}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#0f0f11,#141416);color:#fff;}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:60px 0}
+    .eyebrow{display:inline-block;padding:6px 10px;border:1px solid #2a2a2a;border-radius:999px;font-size:.8rem;color:#d1d5db}
+    .hero h1{margin:.75rem 0 1rem;font-size:clamp(2rem,2.6vw+1rem,3.2rem);line-height:1.1}
+    .hero p{color:#cbd5e1;margin:0 0 1.5rem;font-size:1.05rem}
+    .cta{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.1rem;border-radius:12px;border:1px solid #222;background:#fff;color:#111;font-weight:700}
+    .btn.secondary{background:#0b0b0b;color:#e5e7eb}
+    .stats{display:flex;gap:1.25rem;margin-top:1.25rem;color:#d1d5db;font-size:.95rem;flex-wrap:wrap}
+    .hero-card{background:#0b0b0b;border:1px solid #222;border-radius:16px;overflow:hidden}
+    .hero-card img{width:100%;height:400px;display:block;object-fit:cover}
+    .hero-card .cap{padding:1rem 1rem 1.2rem}
+
+    /* Values */
+    .values{background:#f9f9f9;padding:40px 15px;text-align:center;}
+    .values .grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .vp{padding:20px;}
+    .vp i{font-size:2rem;color:#b5651d;margin-bottom:10px;display:block;}
+    .vp b{display:block;margin:8px 0;font-size:1.2rem;color:#111;}
+    .vp span{font-size:.95rem;color:#555;}
+
+    /* Catalog */
+    section{padding:36px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px;flex-wrap:wrap;gap:.5rem}
+    .section-head h2{margin:0;font-size:1.4rem}
+    .link{font-weight:600;border:1px solid #000;padding:7px;border-radius:7px;}
+
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    .card{background:var(--card);border-radius:16px;border:1px solid var(--ring);overflow:hidden;display:flex;flex-direction:column;position:relative}
+    .thumb{background:#f1f5f9;aspect-ratio:1/1;overflow:hidden;position:relative}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .meta{padding:.85rem}
+    .meta h3{font-size:1rem;margin:0 0 .35rem}
+    .price{display:flex;gap:.5rem;align-items:center;font-weight:700}
+    .price s{color:#9ca3af;font-weight:500}
+    .badge{position:absolute;left:.75rem;top:.75rem;background:#111;color:#fff;font-size:.75rem;padding:.25rem .5rem;border-radius:8px}
+
+    /* Newsletter */
+    .newsletter{background:#111;color:#e5e7eb;border-radius:16px;padding:1.25rem;border:1px solid #222}
+    .newsletter form{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap}
+    .newsletter input{flex:1;height:44px;border-radius:10px;border:1px solid #222;background:#0b0b0b;color:#f3f4f6;padding:0 12px}
+    .newsletter button{height:44px;padding:0 14px;border-radius:10px;border:1px solid #222;background:#fff;color:#111;font-weight:700}
+
+    /* Footer */
+    footer{padding:36px 0 60px;color:#374151}
+    #fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.5rem}
+    footer h4{margin:.25rem 0 1rem;font-size:1rem;color:#111}
+    footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+    footer li a{color:#4b5563}
+
+    /* Responsive */
+    @media(max-width:1000px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:760px){
+    
+      .hamburger{display:block}
+      .menu{display:none; flex-direction:column;gap:10px;background:#222;padding:15px;border-radius:10px;margin-top:10px;}
+      .menu.active{display:flex}
+      .grid{grid-template-columns:1fr}
+      #fgrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div>Call us: (+234) 806 268 5849</div>
+      <div>
+        <a href="#">Track Order</a> ·
+        <a href="#">Help</a> ·
+        <a href="#">Nigeria</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">Reliance Footwear</a>
+      <div class="search">
+        <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search" />
+        <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+        <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      </div>
+     
+    </div>
+    <div class="container">
+      <nav class="menu" aria-label="primary">
+        <a href="about.html" target="_blank"><i class="fa-solid fa-circle-info"></i> About</a>
+        <details>
+          <summary><i class="fa-solid fa-person"></i> Men/Guys</summary>
+          <div class="mega" role="menu">
+            <a href="men-shoe.html" target="_blank">Shoes/Half Shoes</a>
+            <a href="men-sandal.html" target="_blank">Sandals</a>
+            <a href="men-palm.html" target="_blank">Slides</a>
+            <a href="men-belt.html" target="_blank">Belts</a>
+          </div>
+        </details>
+        <details>
+          <summary><i class="fa-solid fa-person-dress"></i> Women/Ladies</summary>
+          <div class="mega" role="menu">
+            <a href="women-shoes.html" target="_blank">Shoes/Heels</a>
+            <a href="women-sandal.html" target="_blank">Sandals</a>
+            <a href="women-slippers.html" target="_blank">Slippers</a>
+            <a href="women-belt.html" target="_blank">Belts</a>
+          </div>
+        </details>
+        <details>
+          <summary><i class="fa-solid fa-child"></i> Kids</summary>
+          <div class="mega" role="menu">
+            <a href="kids-shoes.html" target="_blank">Shoes/Half shoes</a>
+            <a href="kids-sandal.html" target="_blank">Sandals</a>
+            <a href="kids-palm.html" target="_blank">Slides</a>
+            <a href="kids-belt.html" target="_blank">Belts</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="eyebrow">Proudly Nigerian • Genuine Leather</span>
+        <h1>Handcrafted leather shoes, sandals & belts for everyone.</h1>
+        <p>Reliance designs and builds durable leather footwear and accessories for men, women, and kids. Style and comfort that lasts.</p>
+        <div class="cta">
+          <a class="btn" target="_blank" href="https://wa.me/qr/QJHPFEAD65WLI1">Quick Order via WhatsApp →</a>
+          <a class="btn secondary" target="_blank" href="men-shoe.html">Men's Collection</a>
+        </div>
+        <div class="stats">
+          <span><i class="fa-solid fa-handshake"></i> Trusted craftsmanship</span>
+          <span><i class="fa-solid fa-truck"></i> Nationwide delivery</span>
+          <span><i class="fa-solid fa-rotate-left"></i> Easy returns</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="images/images (3).jfif" alt="Featured leather shoe">
+        <div class="cap">
+          <strong>Classic Leather Shoe</strong>
+          <p style="margin:.35rem 0 0;color:#94a3b8">Elegant, durable, and built from premium leather.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="values">
+    <div class="container grid">
+      <div class="vp">
+        <i class="fa-solid fa-shoe-prints"></i>
+        <b>Genuine Leather</b>
+        <span>Crafted with the finest quality materials.</span>
+      </div>
+      <div class="vp">
+        <i class="fa-solid fa-truck"></i>
+        <b>Nationwide Delivery</b>
+        <span>Fast shipping across Nigeria.</span>
+      </div>
+      <div class="vp">
+        <i class="fa-solid fa-rotate-left"></i>
+        <b>Easy Returns</b>
+        <span>Shop confidently with hassle-free returns.</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="catalog" class="container">
+    <div class="section-head">
+      <h2>Featured Products</h2>
+      <a class="link" href="product-listing.html">View all</a>
+    </div>
+    <div class="grid" id="products"></div>
+  </section>
+
+  <section class="container">
+    <div class="newsletter">
+      <h3 style="margin:0">Join Our Newsletter</h3>
+      <p style="margin:.25rem 0 .5rem;color:#94a3b8">Get updates on new leather collections and exclusive offers.</p>
+      <form onsubmit="event.preventDefault(); alert('Subscribed!')">
+        <input type="email" placeholder="Email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" id="fgrid">
+      <div>
+        <h4>Store Information</h4>
+        <p><span style="color:#021b52;font-weight:600;">Address:</span> Reliance Footwear, Shop C19, Ige Daramola Street, Iyan-Iyesi, Ota, Ogun-state.</p>
+        <p><span style="color:#021b52;font-weight:600;">Hotline :</span> +234 806 268 5849</p>
+        <p><span style="color:#021b52;font-weight:600;">Email:</span> olorunmowajumarysc@gmail.com</p>
+        <p><span style="color:#021b52;font-weight:600;">Whatsapp:</span> 09160715211</p>
+      </div>
+      <div>
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+    if (hamburger && menu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+      });
+    }
+
+    // Products
+    const products = [
+      {id:1,name:'Men Leather Shoe', price:25000, compare:30000, badge:'SALE', img:'images/menshoe-2.webp'},
+      {id:2,name:'Women Leather Sandal', price:18000, compare:22000, badge:'NEW', img:'images/womensan-3.jfif'},
+      {id:3,name:'Men Leather Belt', price:8000, compare:10000, badge:'HOT', img:'images/belt.webp'},
+      {id:4,name:'Kids School Shoe', price:12000, compare:15000, badge:'SALE', img:'images/boysan-3.jfif'}
+    ];
+    const formatNaira = n => new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
+    const grid = document.getElementById('products');
+    if (grid) {
+      products.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="thumb">
+            <img src="${p.img}" alt="${p.name}">
+            ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+          </div>
+          <div class="meta">
+            <h3>${p.name}</h3>
+            <div class="price">
+              <span>${formatNaira(p.price)}</span>
+              ${p.compare ? `<s>${formatNaira(p.compare)}</s>` : ''}
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
