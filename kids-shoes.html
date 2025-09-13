@@ -1,315 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reliance Footwear - Product Listing</title>
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reliance Footwear — Kids Collection</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-    }
 
- header {
-      background: #111;
-      color: #fff;
+  <style>
+    :root{
+      --bg:#0e0e10;
+      --text:#0b0b0c;
+      --muted:#6b7280;
+      --white:#fff;
+      --off:#f8fafc;
+      --card:#ffffff;
+      --accent:#111;
+      --gold:#c7a17a;
+      --container:1200px;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-    }
-    .brand {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-    }
-    .search {
-      display: flex;
-      gap: 8px;
-    }
-    .search input {
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    .icon-btn {
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #fff;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--off);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+    /* Topbar */
+    .topbar{background:var(--bg);color:var(--white);font-size:.9rem}
+    .topbar .container{display:flex;align-items:center;justify-content:space-between;height:44px}
+    .topbar a{color:var(--white);opacity:.95}
+    .topbar a:hover{opacity:1}
+
+    /* Header */
+    header {background:#fff;color:#000;position:sticky;top:0;z-index:1100;border-bottom:1px solid #eee;}
+    .nav {display:flex;align-items:center;gap:1rem;padding:12px 0;}
+    .brand {font-size:1.35rem;font-weight:700;color:#000;text-decoration:none;flex:0 0 auto;}
+    .search {display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end;}
+    .search input {padding:8px 10px;border-radius:6px;border:1px solid #ddd;flex:0 0 360px;max-width:100%;}
+    .icon-btn {background:none;border:none;font-size:1.1rem;cursor:pointer;color:#000;padding:6px;border-radius:6px;}
+    .icon-btn:focus{outline:2px solid rgba(0,0,0,.08)}
+
+    /* Desktop menu */
     nav.menu {
-      display: flex;
-      gap: 20px;
-      background: #222;
-      padding: 7px 10px;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      padding:10px 0;
+      background:transparent;
+      flex-direction:row;
     }
     nav.menu a, nav.menu summary {
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
+      color:#111;
+      text-decoration:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 8px;
+      border-radius:6px;
+      font-weight:500;
     }
-    .mega {
-      background: #333;
-      padding: 10px;
-    }
-    .mega a {
-      display: block;
-      color: #ddd;
-      margin: 5px 0;
+    nav.menu a:hover, nav.menu summary:hover { background: rgba(0,0,0,0.04) }
+
+    nav.menu details { position:relative; }
+    nav.menu details summary::-webkit-details-marker{display:none}
+    .mega {position:absolute;left:0;top:100%;background:#fff;border:1px solid #e6e6e6;padding:10px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);min-width:220px;display:none}
+    nav.menu details[open] .mega { display:block; }
+    .mega a{color:#111;margin:6px 0;display:block;padding:4px 6px;border-radius:4px}
+    .mega a:hover{background:#f3f4f6}
+
+    /* Hamburger (mobile) */
+    .hamburger {width:28px;height:22px;position:relative;display:none;cursor:pointer;flex:0 0 auto;border:0;background:none}
+    .hamburger span {position:absolute;height:3px;width:100%;background:#000;left:0;transition:.25s;border-radius:2px}
+    .hamburger span:nth-child(1){top:0}
+    .hamburger span:nth-child(2){top:8px}
+    .hamburger span:nth-child(3){top:16px}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg);top:8px}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg);top:8px}
+
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      .nav {justify-content:space-between;}
+      .hamburger{display:block}
+      .search {order:3;width:100%;margin-top:8px;justify-content:flex-start;gap:.5rem}
+      .search input {flex:1;min-width:0}
+      nav.menu {
+        position: absolute;
+        left: 0;
+        top: 64px;
+        width: 100%;
+        background: #111;
+        color: #fff;
+        padding: 10px 16px;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .34s cubic-bezier(.2,.9,.2,1), background .2s;
+        border-radius: 0 0 8px 8px;
+      }
+      nav.menu a, nav.menu summary { color: #fff; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04) }
+      nav.menu summary { display:flex;justify-content:space-between;align-items:center; }
+      nav.menu .mega { position: static; background: transparent; border: none; padding-left: 12px; display:none; box-shadow:none }
+      nav.menu details[open] .mega { display:block }
+      nav.menu.active { max-height: 900px; } /* enough for items */
+      .mega a{color:#fff}
     }
 
+    /* Main & Grid */
+    main{padding:28px 0 80px}
+    .page-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:18px;flex-wrap:wrap}
+    .page-head h1{font-size:1.6rem;margin:0}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+    .product-card{background:var(--card);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(15,15,15,0.08)}
+    .thumb{background:#f3f4f6;aspect-ratio:1/1;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .meta{padding:12px}
+    .meta h3{font-size:1rem;margin:0 0 .5rem}
+    .meta p{color:var(--muted);font-size:.95rem;margin:0}
+    .price{margin-top:8px;font-weight:700;color:var(--gold);font-size:1rem}
+    .card-actions{display:flex;gap:.5rem;padding:12px;border-top:1px solid rgba(0,0,0,0.03);justify-content:center}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:9px 12px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;border:1px solid rgba(0,0,0,0.06)}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
+    .btn:hover{opacity:.95}
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 30px 15px;
-    }
+    @media(max-width:1000px){ .product-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:560px){ .product-grid{grid-template-columns:1fr} .search input{width:100%} }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 26px;
-      color: #333;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      height: fit-content;
-      transition: transform 0.2s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product-info {
-      padding: 15px;
-      text-align: center;
-    }
-
-    .product-info h3 {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #333;
-    }
-
-    .product-info p {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .price {
-      font-size: 16px;
-      color: #c7a17a;
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      margin-top: 10px;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #c7a17a;
-    }
+    footer{padding:36px 0 60px;color:#374151}
+    #fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.5rem}
+    @media(max-width:900px){ #fgrid{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div>Call us: (+234) 806 268 5849</div>
+      <div>
+        <a href="#">Track Order</a> ·
+        <a href="#">Help</a> ·
+        <a href="#">Nigeria</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header>
     <div class="container nav">
-      <a class="brand" href="#">Reliance Footwear</a>
-      <div class="search">
-        <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search" />
-        <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
-        <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
-        <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      <a class="brand" href="index.html">Reliance Footwear</a>
+
+      <div style="display:flex;align-items:center;gap:.5rem;">
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="search" role="search">
+          <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search">
+          <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+          <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+        </div>
       </div>
     </div>
-    <div class="container" style="padding-bottom:12px">
-      <nav class="menu" aria-label="primary">
-        
-        <a href="index.html" target="_blank">Home</a>
-         <a href="about.html" target="_blank">About</a>
+
+    <div class="container">
+      <nav id="primary-menu" class="menu" aria-label="Primary Navigation">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="product-listing.html"><i class="fa-solid fa-list"></i> Products</a>
+
         <details>
-          <summary>Men/Guys</summary>
+          <summary><i class="fa-solid fa-person"></i> Men/Guys</summary>
           <div class="mega" role="menu">
-            <div>
-              <strong>Men's Collection</strong>
-              <a href="men-shoe.html" target="_blank">Shoes/Half Shoes</a>
-              <a href="men-sandal.html" target="_blank">Sandals</a>
-              <a href="men-palm.html" target="_blank">Slides</a>
-              <a href="men-belt.html" target="_blank">Belts</a>
-            </div>
+            <a href="men-shoe.html">Shoes/Half Shoes</a>
+            <a href="men-sandal.html">Sandals</a>
+            <a href="men-palm.html">Slides</a>
+            <a href="men-belt.html">Belts</a>
           </div>
         </details>
+
         <details>
-          <summary>Women/Ladies</summary>
+          <summary><i class="fa-solid fa-person-dress"></i> Women/Ladies</summary>
           <div class="mega" role="menu">
-            <div>
-              <strong>Women's Collection</strong>
-              <a href="women-shoes.html" target="_blank">Shoes/Heels</a>
-              <a href="women-sandal.html" target="_blank">Sandals</a>
-              <a href="women-slippers.html" target="_blank">Slippers</a>
-              <a href="women-belt.html" target="_blank">Belts</a>
-            </div>
+            <a href="women-shoes.html">Shoes/Heels</a>
+            <a href="women-sandal.html">Sandals</a>
+            <a href="women-slippers.html">Slippers</a>
+            <a href="women-belt.html">Belts</a>
           </div>
         </details>
+
         <details>
-          <summary>Kids</summary>
+          <summary><i class="fa-solid fa-children"></i> Kids</summary>
           <div class="mega" role="menu">
-            <div>
-              <strong>Kids Collection</strong>
-              <a href="kids-shoes.html" target="_blank">Shoes/Half shoes</a>
-              <a href="kids-sandal.html" target="_blank">Sandals</a>
-             <a href="kids-palm.html" target="_blank">Slides</a>
-              <a href="kids-belt.html" target="_blank">Belts</a>
-            </div>
+            <a href="kids-shoes.html">Shoes/Half shoes</a>
+            <a href="kids-sandal.html">Sandals</a>
+            <a href="kids-palm.html">Slides</a>
+            <a href="kids-belt.html">Belts</a>
           </div>
         </details>
       </nav>
     </div>
   </header>
 
-
-  <!-- Product Listing -->
-  <div class="container">
-    <h2>Kid's Leather Collection</h2>
-    <div class="product-grid">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <img src="images/kidshoe1.jfif" alt="Men Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Classic Leather</h3>
-          <p>Premium handcrafted leather shoe.</p>
-          <div class="price">$120</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
+  <!-- Main -->
+  <main class="container" id="main">
+    <div class="page-head">
+      <h1>Kid's Leather Collection</h1>
+      <div class="filters" aria-hidden="true">
+        <span style="color:var(--muted);font-size:.95rem">Showing kids leather shoes & sandals</span>
       </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <img src="images/kidshoe2.jfif" alt="Women Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Elegant Leather</h3>
-          <p>Stylish and durable leather wear.</p>
-          <div class="price">$95</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/kidshoe3.jfif" alt="Men Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Formal Leather</h3>
-          <p>Perfect for school and events.</p>
-          <div class="price">$140</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <img src="images/kidshoe4.jfif" alt="Women Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Classic Leather</h3>
-          <p>Elegant everyday comfort.</p>
-          <div class="price">$110</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-   
-      <div class="product-card">
-        <img src="images/kidshoe5.jfif" alt="Men Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Formal Leather</h3>
-          <p>Perfect for school and events.</p>
-          <div class="price">$140</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-    
-      <div class="product-card">
-        <img src="images/kidshoe6.jfif" alt="Women Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Classic Leather</h3>
-          <p>Elegant everyday comfort.</p>
-          <div class="price">$110</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-    
-      <div class="product-card">
-        <img src="images/kidshoe7.jfif" alt="Men Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Formal Leather</h3>
-          <p>Perfect for school and events.</p>
-          <div class="price">$140</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-    
-      <div class="product-card">
-        <img src="images/kidshoe8.jfif" alt="Women Leather Shoe">
-        <div class="product-info">
-          <h3>Kid's Classic Leather</h3>
-          <p>Elegant everyday comfort.</p>
-          <div class="price">$110</div>
-          <a href="product-detail.html" class="btn">View Details</a>
-        </div>
-      </div>
-
-    
-      
-      
     </div>
-  
- </div>
+
+    <section aria-label="Products">
+      <div id="product-grid" class="product-grid" role="list"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" id="fgrid">
+      <div>
+        <h4>Store Information</h4>
+        <p><b style="color:#021b52">Address:</b> Reliance Footwear, Shop C19, Ige Daramola Street, Iyan-Iyesi, Ota, Ogun-state.</p>
+        <p><b style="color:#021b52">Hotline:</b> +234 806 268 5849</p>
+        <p><b style="color:#021b52">Email:</b> olorunmowajumarysc@gmail.com</p>
+      </div>
+      <div>
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Header: hamburger toggle + accessibility + outside click to close */
+    (function () {
+      const hamburger = document.querySelector('.hamburger');
+      const menu = document.querySelector('nav.menu');
+      if (!hamburger || !menu) return;
+
+      const toggle = (force) => {
+        const isActive = typeof force === 'boolean' ? force : !menu.classList.contains('active');
+        menu.classList.toggle('active', isActive);
+        hamburger.classList.toggle('active', isActive);
+        hamburger.setAttribute('aria-expanded', String(isActive));
+      };
+
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggle();
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width:768px)').matches) {
+          if (!menu.contains(e.target) && !hamburger.contains(e.target) && menu.classList.contains('active')) {
+            toggle(false);
+          }
+        }
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) toggle(false);
+      });
+    })();
+
+    /* Product rendering for kids collection */
+    (function () {
+      const products = [
+        { id: 1, name: "Kid's Classic Shoe", desc: "Premium handcrafted leather shoe.", price: 12000, img: "images/kidshoe1.jfif" },
+        { id: 2, name: "Kid's Elegant Shoe", desc: "Stylish and durable leather wear.", price: 9500, img: "images/kidshoe2.jfif" },
+        { id: 3, name: "Kid's Formal Shoe", desc: "Perfect for school and events.", price: 14000, img: "images/kidshoe3.jfif" },
+        { id: 4, name: "Kid's Everyday Shoe", desc: "Elegant everyday comfort.", price: 11000, img: "images/kidshoe4.jfif" },
+        { id: 5, name: "Kid's Formal Shoe 2", desc: "Perfect for school and events.", price: 14000, img: "images/kidshoe5.jfif" },
+        { id: 6, name: "Kid's Classic Sandal", desc: "Comfortable and durable.", price: 11000, img: "images/kidsan1.jfif" },
+        { id: 7, name: "Kid's Play Sandal", desc: "Great for outdoor play.", price: 14000, img: "images/kidsan2.jfif" },
+        { id: 8, name: "Kid's Soft Sandal", desc: "Soft footbed for comfort.", price: 11000, img: "images/kidsan3.jfif" }
+      ];
+
+      const grid = document.getElementById('product-grid');
+      const formatNaira = n => new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 0 }).format(n);
+
+      products.forEach(p => {
+        const item = document.createElement('article');
+        item.className = 'product-card';
+        item.setAttribute('role', 'listitem');
+        item.innerHTML = `
+          <div class="thumb">
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="meta">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="price">${formatNaira(p.price)}</div>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="product-details.html?product=${p.id}" aria-label="View ${p.name}"><i class="fa-regular fa-eye"></i> View</a>
+            <a class="btn secondary" href="#" aria-label="Add ${p.name} to cart"><i class="fa-solid fa-cart-plus"></i> Add</a>
+          </div>
+        `;
+        grid.appendChild(item);
+      });
+    })();
+  </script>
 </body>
 </html>
