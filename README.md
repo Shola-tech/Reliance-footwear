@@ -25,7 +25,7 @@ reliance-footwear/
 ---
 
 ## 🚀 Live Demo
-👉 [Visit Site on Netlify](https://your-site-name.netlify.app)  
+👉 [Visit Site on Netlify](https://relance-footwears.netlify.app/)  
 *(Replace with your final Netlify link once deployed)*
 
 ---
@@ -42,11 +42,17 @@ preview.JPG
 
 ✨ Features
 
-Multi-page structure (Home, Product Listing, Product Details, About, Men/Women/Kids categories)
+Mobile-first responsive layout (desktop/tablet/mobile breakpoints)
 
-Static and lightweight (no frameworks or external CSS/JS needed)
+Sticky header with accessible mobile menu
 
-Simple and clean navigation between categories
+Product listing and product detail pages
+
+Accessible components: keyboard-focus, aria labels, aria-live cart announcer
+
+Lazy-loaded images and responsive srcset support
+
+Simple, static site—no build step required
 
 👨‍💻 Author
 
