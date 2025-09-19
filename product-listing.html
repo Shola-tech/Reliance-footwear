@@ -4,160 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reliance Footwear — Product Listing</title>
-
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    :root{
-      --bg:#0e0e10;
-      --text:#0b0b0c;
-      --muted:#6b7280;
-      --white:#fff;
-      --off:#f8fafc;
-      --card:#ffffff;
-      --accent:#111;
-      --gold:#c7a17a;
-      --ring: rgba(0,0,0,.08);
-      --container:1200px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--off);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%;height:auto}
-    .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
-
-    /* Topbar */
-    .topbar{background:var(--bg);color:var(--white);font-size:.9rem}
-    .topbar .container{display:flex;align-items:center;justify-content:space-between;height:44px}
-    .topbar a{color:var(--white);opacity:.9}
-    .topbar a:hover{opacity:1}
-
-    /* Header */
-    header {background:#fff;color:#000;position:sticky;top:0;z-index:1100;border-bottom:1px solid #eee;}
-    .nav {display:flex;align-items:center;gap:1rem;padding:12px 0;}
-    .brand {font-size:1.35rem;font-weight:700;color:#000;text-decoration:none;flex:0 0 auto;}
-    .search {display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end;}
-    .search input {padding:8px 10px;border-radius:6px;border:1px solid #ddd;flex:0 0 360px;max-width:100%;}
-    .icon-btn {background:none;border:none;font-size:1.1rem;cursor:pointer;color:#000;padding:6px;border-radius:6px;}
-    .icon-btn:focus{outline:2px solid rgba(0,0,0,.08)}
-
-    /* Desktop menu (horizontal) */
-    nav.menu {
-      display:flex;
-      gap:18px;
-      align-items:center;
-      padding:10px 0;
-      background:transparent;
-      flex-direction:row;
-      max-height:none;
-      overflow:visible;
-    }
-    nav.menu a, nav.menu summary {
-      color:#111;
-      text-decoration:none;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 8px;
-      border-radius:6px;
-      font-weight:500;
-    }
-    nav.menu a:hover, nav.menu summary:hover { background: rgba(0,0,0,0.04) }
-
-    nav.menu details { position:relative; }
-    nav.menu details summary { list-style:none; cursor:pointer; }
-    nav.menu details summary::-webkit-details-marker{display:none}
-    .mega {position:absolute;left:0;top:100%;background:#fff;border:1px solid #e6e6e6;padding:10px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);min-width:220px;display:none}
-    nav.menu details[open] .mega { display:block; }
-    .mega a{color:#111;margin:6px 0;display:block;padding:4px 6px;border-radius:4px}
-    .mega a:hover{background:#f3f4f6}
-
-    /* Hamburger (mobile) */
-    .hamburger {width:28px;height:22px;position:relative;display:none;cursor:pointer;flex:0 0 auto;background:none;border:0}
-    .hamburger span {position:absolute;height:3px;width:100%;background:#000;left:0;transition:.25s;border-radius:2px}
-    .hamburger span:nth-child(1){top:0}
-    .hamburger span:nth-child(2){top:8px}
-    .hamburger span:nth-child(3){top:16px}
-    .hamburger.active span:nth-child(1){transform:rotate(45deg);top:8px}
-    .hamburger.active span:nth-child(2){opacity:0}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg);top:8px}
-
-    /* Mobile menu (collapsible) */
-    @media (max-width: 768px) {
-      .nav {justify-content:space-between;}
-      .hamburger{display:block}
-      .search {order:3;width:100%;margin-top:8px;justify-content:flex-start;gap:.5rem}
-      .search input {flex:1;min-width:0}
-      nav.menu {
-        position: absolute;
-        left: 0;
-        top: 64px;
-        width: 100%;
-        background: #111;
-        color: #fff;
-        padding: 10px 16px;
-        flex-direction: column;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .34s cubic-bezier(.2,.9,.2,1), background .2s;
-        border-radius: 0 0 8px 8px;
-      }
-      nav.menu a, nav.menu summary { color: #fff; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04) }
-      nav.menu summary { display:flex;justify-content:space-between;align-items:center; }
-      nav.menu .mega { position: static; background: transparent; border: none; padding-left: 12px; display:none; box-shadow:none }
-      nav.menu details[open] .mega { display:block }
-      nav.menu.active { max-height: 900px; } /* enough for items */
-      /* hide desktop mega hover shadows on mobile */
-      .mega a{color:#fff}
-    }
-
-    /* Page content */
-    main{padding:32px 0 80px}
-    .page-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:18px;flex-wrap:wrap}
-    .page-head h1{font-size:1.6rem;margin:0}
-    .filters{display:flex;gap:.5rem;align-items:center}
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      align-items:start;
-    }
-    .product-card {
-      background:var(--card);
-      border-radius:10px;
-      box-shadow: 0 6px 18px rgba(15,15,15,0.06);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .product-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(15,15,15,0.08)}
-    .thumb{background:#f3f4f6;aspect-ratio:1/1;overflow:hidden;position:relative}
-    .thumb img{width:100%;height:100%;object-fit:cover}
-    .meta{padding:12px}
-    .meta h3{font-size:1rem;margin:0 0 .5rem}
-    .meta p{color:var(--muted);font-size:.95rem;margin:0}
-    .price{margin-top:8px;font-weight:700;color:var(--gold);font-size:1rem}
-    .card-actions{display:flex;gap:.5rem;padding:12px;border-top:1px solid rgba(0,0,0,0.03);justify-content:center}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:9px 12px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;border:1px solid rgba(0,0,0,0.06)}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
-    .btn:hover{opacity:.95}
-
-    /* Responsive grid */
-    @media (max-width: 1000px){ .product-grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width: 560px){ .product-grid{grid-template-columns:1fr} .search input{width:100%} }
-
-    footer{padding:36px 0 60px;color:#374151}
-    #fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.5rem}
-    @media(max-width:900px){ #fgrid{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
   <!-- Topbar -->
@@ -172,18 +24,18 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header>
-    <div class="container nav">
+    <div class="container nav" role="banner">
       <a class="brand" href="index.html">Reliance Footwear</a>
 
       <div style="display:flex;align-items:center;gap:.5rem;">
+        <!-- Hamburger for mobile --> 
         <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="search" role="search">
-          <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search">
+        <!-- Search + icons (kept compact & responsive) -->
+        <div class="controls" role="search" aria-label="Site search and quick links">
           <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
           <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
           <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
@@ -192,12 +44,12 @@
     </div>
 
     <div class="container">
-      <nav id="primary-menu" class="menu" aria-label="Primary Navigation">
-        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <!-- Menu: horizontal on desktop, collapsible on mobile -->
+      <nav id="primary-menu" class="menu" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html"><i class="fa-solid fa-circle-info"></i> Home</a>
 
         <details>
-          <summary><i class="fa-solid fa-person"></i> Men/Guys <i class="fa-solid fa-chevron-down" style="font-size:.7rem;margin-left:auto"></i></summary>
+          <summary><span><i class="fa-solid fa-person"></i> Men/Guys</span></summary>
           <div class="mega" role="menu">
             <a href="men-shoe.html">Shoes/Half Shoes</a>
             <a href="men-sandal.html">Sandals</a>
@@ -207,7 +59,7 @@
         </details>
 
         <details>
-          <summary><i class="fa-solid fa-person-dress"></i> Women/Ladies <i class="fa-solid fa-chevron-down" style="font-size:.7rem;margin-left:auto"></i></summary>
+          <summary><span><i class="fa-solid fa-person-dress"></i> Women/Ladies</span></summary>
           <div class="mega" role="menu">
             <a href="women-shoes.html">Shoes/Heels</a>
             <a href="women-sandal.html">Sandals</a>
@@ -217,7 +69,7 @@
         </details>
 
         <details>
-          <summary><i class="fa-solid fa-children"></i> Kids <i class="fa-solid fa-chevron-down" style="font-size:.7rem;margin-left:auto"></i></summary>
+          <summary><span><i class="fa-solid fa-children"></i> Kids</span></summary>
           <div class="mega" role="menu">
             <a href="kids-shoes.html">Shoes/Half shoes</a>
             <a href="kids-sandal.html">Sandals</a>
@@ -228,6 +80,8 @@
       </nav>
     </div>
   </header>
+  <!-- Live cart announcer (screen reader) -->
+  <div id="cart-announcer" class="sr-only" aria-live="polite" aria-atomic="true">Cart is empty</div>
 
   <!-- Main -->
   <main class="container" id="main">
@@ -275,79 +129,124 @@
   </footer>
 
   <script>
-    /* Header: hamburger toggle + accessibility + outside click to close */
+    /* --- header: set header height CSS var, hamburger toggle, outside click --- */
     (function () {
+      const root = document.documentElement;
+      const headerRow = document.querySelector('header .container.nav');
       const hamburger = document.querySelector('.hamburger');
       const menu = document.querySelector('nav.menu');
-      if (!hamburger || !menu) return;
 
-      const toggle = (force) => {
-        const isActive = typeof force === 'boolean' ? force : !menu.classList.contains('active');
-        menu.classList.toggle('active', isActive);
-        hamburger.classList.toggle('active', isActive);
-        hamburger.setAttribute('aria-expanded', String(isActive));
+      function setHeaderHeight() {
+        if (!headerRow) return;
+        const h = Math.ceil(headerRow.getBoundingClientRect().height);
+        root.style.setProperty('--page-header-height', h + 'px');
+      }
+      setHeaderHeight();
+      window.addEventListener('resize', setHeaderHeight);
+      window.addEventListener('load', setHeaderHeight);
+      setTimeout(setHeaderHeight, 250);
+
+      if (!hamburger || !menu) return;
+      const toggleMenu = (force) => {
+        const open = typeof force === 'boolean' ? force : !menu.classList.contains('active');
+        menu.classList.toggle('active', open);
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
       };
 
-      hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggle();
-      });
+      hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
 
-      // Close when clicking outside on mobile
       document.addEventListener('click', (e) => {
         if (window.matchMedia('(max-width:768px)').matches) {
           if (!menu.contains(e.target) && !hamburger.contains(e.target) && menu.classList.contains('active')) {
-            toggle(false);
+            toggleMenu(false);
           }
         }
       });
 
-      // Close menu on escape
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu.classList.contains('active')) toggle(false);
+        if (e.key === 'Escape' && menu.classList.contains('active')) toggleMenu(false);
       });
     })();
 
-    /* Product rendering (easy to update) */
+    /* --- products render + accessible Add to cart behavior --- */
     (function () {
+      // sample product data (unique ids)
       const products = [
         { id: 1, name: "Men's Classic Leather", desc: "Premium handcrafted leather shoe.", price: 25000, img: "images/menshoe-1.webp" },
         { id: 2, name: "Women's Elegant Leather", desc: "Stylish and durable leather wear.", price: 18000, img: "images/womensan6.jfif" },
         { id: 3, name: "Men's Formal Leather", desc: "Perfect for work and events.", price: 30000, img: "images/menshoe-3.webp" },
         { id: 4, name: "Women's Classic Leather", desc: "Elegant everyday comfort.", price: 20000, img: "images/womensan-5.jfif" },
-        { id: 5, name: "Men's Formal Leather", desc: "Signature finish & comfort.", price: 28000, img: "images/mensan4.jfif" },
+        { id: 5, name: "Men's Formal Leather II", desc: "Signature finish & comfort.", price: 28000, img: "images/mensan4.jfif" },
         { id: 6, name: "Kid's Classic Leather", desc: "Durable & comfy for school.", price: 12000, img: "images/boysan-2.jfif" },
         { id: 7, name: "Men's Leather Belt", desc: "Premium leather belt.", price: 8000, img: "images/belt.webp" },
         { id: 8, name: "Women's Slip-on", desc: "Easy slip-on comfort.", price: 15000, img: "images/wmomensan-4.jfif" },
         { id: 9, name: "Kid's Formal Leather", desc: "Perfect for events.", price: 14000, img: "images/boysan-1.jfif" },
         { id: 10, name: "Men's Classic Pair", desc: "Timeless design.", price: 22000, img: "images/baking-stock2.webp" },
-        { id: 10, name: "Men's Classic Pair", desc: "Timeless design.", price: 22000, img: "images/men4.jfif" },
-        { id: 10, name: "Men's Classic Pair", desc: "Timeless design.", price: 22000, img: "images/men1.jfif" }
+        { id: 11, name: "Men's Classic Pair II", desc: "Timeless design II.", price: 22000, img: "images/men4.jfif" },
+        { id: 12, name: "Men's Classic Pair III", desc: "Timeless design III.", price: 22000, img: "images/men1.jfif" }
       ];
 
-      const grid = document.getElementById('product-grid');
       const formatNaira = n => new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 0 }).format(n);
+      const grid = document.getElementById('product-grid');
+      const cartAnnouncer = document.getElementById('cart-announcer');
+      let cartCount = 0;
+
+      function announceCart() {
+        cartAnnouncer.textContent = cartCount > 0 ? `Cart has ${cartCount} item${cartCount > 1 ? 's' : ''}.` : 'Cart is empty';
+      }
 
       products.forEach(p => {
         const item = document.createElement('article');
         item.className = 'product-card';
-        item.setAttribute('role', 'listitem');
+        item.setAttribute('role', 'article');
+        item.setAttribute('aria-labelledby', `p-${p.id}-title`);
+
+        // Use srcset/sizes placeholders — replace with real responsive assets later
+        const imgHTML = `
+          <a class="thumb" href="product-details.html?product=${p.id}" aria-labelledby="p-${p.id}-title">
+            <img src="${p.img}" 
+                 alt="${p.name}" 
+                 loading="lazy"
+                 srcset="${p.img} 400w, ${p.img} 800w, ${p.img} 1200w"
+                 sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 25vw">
+          </a>`;
+
         item.innerHTML = `
-          <div class="thumb">
-            <img src="${p.img}" alt="${p.name}">
-          </div>
+          ${imgHTML}
           <div class="meta">
-            <h3>${p.name}</h3>
+            <a id="p-${p.id}-title" href="product-details.html?product=${p.id}" style="color:inherit"><h3>${p.name}</h3></a>
             <p>${p.desc}</p>
             <div class="price">${formatNaira(p.price)}</div>
           </div>
           <div class="card-actions">
-            <a class="btn" href="product-details.html?product=${p.id}"><i class="fa-regular fa-eye"></i> View</a>
-            <a class="btn secondary" href="#"><i class="fa-solid fa-cart-plus"></i> Add</a>
+            <a class="btn" href="product-details.html?product=${p.id}" aria-label="View ${p.name}"><i class="fa-regular fa-eye"></i> View</a>
+            <button class="btn secondary add-to-cart" data-id="${p.id}" aria-label="Add ${p.name} to cart"><i class="fa-solid fa-cart-plus"></i> Add</button>
           </div>
         `;
         grid.appendChild(item);
       });
+
+      // Add-to-cart behavior (very simple demo)
+      grid.addEventListener('click', (e) => {
+        const add = e.target.closest('.add-to-cart');
+        if (!add) return;
+        const id = add.dataset.id;
+        // in real app: call API / update cart state
+        cartCount++;
+        announceCart();
+        // provide visual feedback
+        add.setAttribute('aria-pressed', 'true');
+        add.innerHTML = `<i class="fa-solid fa-check"></i> Added`;
+        setTimeout(() => {
+          add.setAttribute('aria-pressed', 'false');
+          add.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Add`;
+        }, 1200);
+      });
+
+      // initialize announce
+      announceCart();
     })();
   </script>
 </body>

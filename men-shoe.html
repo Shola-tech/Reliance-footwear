@@ -5,129 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Reliance Footwear — Men's Belts</title>
-
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    :root{
-      --bg:#0e0e10;
-      --text:#0b0b0c;
-      --muted:#6b7280;
-      --white:#fff;
-      --off:#f8fafc;
-      --card:#ffffff;
-      --accent:#111;
-      --gold:#c7a17a;
-      --container:1200px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--off);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%;height:auto}
-    .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
 
-    /* Topbar */
-    .topbar{background:var(--bg);color:var(--white);font-size:.9rem}
-    .topbar .container{display:flex;align-items:center;justify-content:space-between;height:44px}
-    .topbar a{color:var(--white);opacity:.95}
-    .topbar a:hover{opacity:1}
-
-    /* Header */
-    header {background:#fff;color:#000;position:sticky;top:0;z-index:1100;border-bottom:1px solid #eee}
-    .nav {display:flex;align-items:center;gap:1rem;padding:12px 0}
-    .brand {font-size:1.35rem;font-weight:700;color:#000;text-decoration:none;flex:0 0 auto}
-    .search {display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end}
-    .search input {padding:8px 10px;border-radius:6px;border:1px solid #ddd;flex:0 0 360px;max-width:100%}
-    .icon-btn {background:none;border:none;font-size:1.1rem;cursor:pointer;color:#000;padding:6px;border-radius:6px}
-    .icon-btn:focus{outline:2px solid rgba(0,0,0,.08)}
-
-    /* Desktop menu */
-    nav.menu {display:flex;gap:18px;align-items:center;padding:10px 0;background:transparent;flex-direction:row}
-    nav.menu a, nav.menu summary {color:#111;display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;font-weight:500}
-    nav.menu a:hover, nav.menu summary:hover { background: rgba(0,0,0,0.04) }
-
-    nav.menu details { position:relative }
-    nav.menu details summary::-webkit-details-marker{display:none}
-    .mega {position:absolute;left:0;top:100%;background:#fff;border:1px solid #e6e6e6;padding:10px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);min-width:220px;display:none}
-    nav.menu details[open] .mega { display:block }
-    .mega a{color:#111;margin:6px 0;display:block;padding:4px 6px;border-radius:4px}
-    .mega a:hover{background:#f3f4f6}
-
-    /* Hamburger (mobile) */
-    .hamburger {width:28px;height:22px;position:relative;display:none;cursor:pointer;border:0;background:none}
-    .hamburger span {position:absolute;height:3px;width:100%;background:#000;left:0;transition:.25s;border-radius:2px}
-    .hamburger span:nth-child(1){top:0}
-    .hamburger span:nth-child(2){top:8px}
-    .hamburger span:nth-child(3){top:16px}
-    .hamburger.active span:nth-child(1){transform:rotate(45deg);top:8px}
-    .hamburger.active span:nth-child(2){opacity:0}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg);top:8px}
-
-    /* Mobile nav */
-    @media (max-width: 768px) {
-      .nav {justify-content:space-between}
-      .hamburger{display:block}
-      .search {order:3;width:100%;margin-top:8px;justify-content:flex-start;gap:.5rem}
-      .search input {flex:1;min-width:0}
-      nav.menu {
-        position: absolute; left: 0; top: 64px; width: 100%;
-        background: #111; color: #fff; padding: 10px 16px;
-        flex-direction: column; gap: 0; max-height: 0; overflow: hidden;
-        transition: max-height .34s cubic-bezier(.2,.9,.2,1), background .2s;
-        border-radius: 0 0 8px 8px;
-      }
-      nav.menu a, nav.menu summary { color: #fff; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04) }
-      nav.menu summary { display:flex;justify-content:space-between;align-items:center; }
-      nav.menu .mega { position: static; background: transparent; border: none; padding-left: 12px; display:none; box-shadow:none }
-      nav.menu details[open] .mega { display:block }
-      nav.menu.active { max-height: 900px }
-      .mega a{color:#fff}
-    }
-
-    /* Main content */
-    main{padding:28px 0 80px}
-    .page-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:18px;flex-wrap:wrap}
-    .page-head h1{font-size:1.6rem;margin:0}
-    .filters{display:flex;gap:.5rem;align-items:center;color:var(--muted)}
-
-    /* Product Grid */
-    .product-grid {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      align-items:start;
-    }
-    .product-card {
-      background:var(--card);
-      border-radius:10px;
-      box-shadow:0 6px 18px rgba(15,15,15,0.04);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .product-card:hover{ transform: translateY(-6px); box-shadow:0 12px 30px rgba(15,15,15,0.08) }
-    .thumb{background:#f3f4f6;aspect-ratio:1/1;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover}
-    .meta{padding:12px}
-    .meta h3{font-size:1rem;margin:0 0 .5rem}
-    .meta p{color:var(--muted);font-size:.95rem;margin:0}
-    .price{margin-top:8px;font-weight:700;color:var(--gold);font-size:1rem}
-    .card-actions{display:flex;gap:.5rem;padding:12px;border-top:1px solid rgba(0,0,0,0.03);justify-content:center}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:9px 12px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;border:1px solid rgba(0,0,0,0.06)}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
-    .btn:hover{opacity:.95}
-
-    @media (max-width:1000px){ .product-grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:560px){ .product-grid{grid-template-columns:1fr} .search input{width:100%} }
-
-    footer{padding:36px 0 60px;color:#374151}
-    #fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.5rem}
-    @media(max-width:900px){ #fgrid{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
   <!-- Topbar -->
@@ -153,7 +37,6 @@
         </button>
 
         <div class="search" role="search">
-          <input type="search" placeholder="Search leather shoes, sandals, belts…" aria-label="Search">
           <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
           <button class="icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
           <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
@@ -277,14 +160,14 @@
     /* Product rendering for men's belts */
     (function () {
       const products = [
-        { id: 1, name: "Men's Classic Belt", desc: "Premium handcrafted leather belt.", price: 8500, img: "images/menshoe-1.webp" },
-        { id: 2, name: "Men's Elegant Belt", desc: "Stylish and durable design.", price: 9500, img: "images/halfshoe1.jfif" },
-        { id: 3, name: "Men's Formal Belt", desc: "Perfect for suits & events.", price: 12000, img: "images/menshoe-3.webp" },
-        { id: 4, name: "Men's Everyday Belt", desc: "Comfortable all-day wear.", price: 7800, img: "images/menshoe4.jfif" },
-        { id: 5, name: "Men's Leather Strap", desc: "Robust clasp, premium finish.", price: 11000, img: "images/menshoe5.jfif" },
-        { id: 6, name: "Men's Slim Belt", desc: "Minimalist & sleek.", price: 7300, img: "images/menshoe6.jfif" },
-        { id: 7, name: "Men's Double-stitch Belt", desc: "Durable double-stitched design.", price: 12500, img: "images/halfshoe2.jfif" },
-        { id: 8, name: "Men's Classic Buckle", desc: "Timeless buckle & leather.", price: 9000, img: "images/halfshoe3.jfif" }
+        { id: 1, name: "Men's Classic Shoe", desc: "Premium handcrafted leather belt.", price: 8500, img: "images/menshoe-1.webp" },
+        { id: 2, name: "Men's Elegant Shoe", desc: "Stylish and durable design.", price: 9500, img: "images/halfshoe1.jfif" },
+        { id: 3, name: "Men's Formal Shoe", desc: "Perfect for suits & events.", price: 12000, img: "images/menshoe-3.webp" },
+        { id: 4, name: "Men's Everyday Shoe", desc: "Comfortable all-day wear.", price: 7800, img: "images/menshoe4.jfif" },
+        { id: 5, name: "Men's Leather Shoe", desc: "Robust clasp, premium finish.", price: 11000, img: "images/menshoe5.jfif" },
+        { id: 6, name: "Men's Slim Shoe", desc: "Minimalist & sleek.", price: 7300, img: "images/menshoe6.jfif" },
+        { id: 7, name: "Men's Shoe", desc: "Durable double-stitched design.", price: 12500, img: "images/halfshoe2.jfif" },
+        { id: 8, name: "Men's Shoe", desc: "Timeless buckle & leather.", price: 9000, img: "images/halfshoe3.jfif" }
       ];
 
       const grid = document.getElementById('product-grid');
