@@ -26,7 +26,7 @@ reliance-footwear/
 
 ## 🚀 Live Demo
 👉 [Visit Site on Netlify](https://relance-footwears.netlify.app/)  
-*(Replace with your final Netlify link once deployed)*
+
 
 ---
 
